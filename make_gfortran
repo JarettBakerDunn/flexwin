@@ -1,4 +1,4 @@
-OPT= -Wl -fbounds-check --allow-multiple-definition
+OPT= -Walll -fbounds-check 
 FC = gfortran
 CFLAGS= ${OPT}
 

@@ -20,7 +20,7 @@ USER flexwin_user
 
 WORKDIR /home/flexwin_user
 
-RUN git clone 'https://github.com/JarettBakerDunn/flexwin.git'; cd flexwin; git checkout dev; cd ttimes_mod; make -f make_gfortran; make -f make_gfortran install;
+RUN git clone 'https://github.com/JarettBakerDunn/flexwin.git'; cd flexwin; git checkout dev; git pull; cd ttimes_mod; make -f make_gfortran; make -f make_gfortran install;
 
 ENV PATH="/home/flexwin_user/flexwin:${PATH}"
 
