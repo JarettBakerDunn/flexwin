@@ -6,15 +6,11 @@ RUN apt-get update && \
   apt-get install --yes \
     gfortran \
     build-essential \
-    git \
-    nano \ 
-    sudo
+    git
 
 RUN useradd \
   --create-home \
-  flexwin_user | adduser flexwin_user sudo
-
-RUN echo "flexwin_user:password" | chpasswd 
+  flexwin_user
 
 USER flexwin_user
 
@@ -22,6 +18,5 @@ WORKDIR /home/flexwin_user
 
 RUN git clone 'https://github.com/JarettBakerDunn/flexwin.git'; cd flexwin; git checkout dev; git pull; cd ttimes_mod; make -f make_gfortran; make -f make_gfortran install;
 
-ENV PATH="/home/flexwin_user/flexwin:${PATH}"
-
 ENV SACHOME="/home/flexwin_user/work/sac"
+ENV PATH="/home/flexwin_user/flexwin:${PATH}"
